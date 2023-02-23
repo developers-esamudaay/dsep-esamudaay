@@ -5,27 +5,27 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
+  @Get('bpp')
   getHello(): string {
     return this.appService.getHello();
   }
 
-  @Post('courses')
+  @Post('bpp/courses')
   getCoursesFromSwayam(@Body() body: any) {
     return this.appService.getCoursesFromSwayam(body);
   }
 
-  @Post('courses/select')
+  @Post('bpp/courses/select')
   selectCourse(@Body() body: any) {
     return this.appService.handleSelect(body);
   }
 
-  @Post('courses/init')
+  @Post('bpp/courses/init')
   initCourse(@Body() body: any) {
     return this.appService.handleInit(body);
   }
 
-  @Post('courses/confirm')
+  @Post('bpp/courses/confirm')
   confirmCourse(@Body() body: any) {
     return this.appService.handleConfirm(body);
   }

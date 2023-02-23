@@ -15,7 +15,7 @@ export class AppService {
   constructor(private readonly httpService: HttpService) {}
 
   getHello(): string {
-    return 'Hello World!';
+    return 'eSamudaay BPP is Live';
   }
 
   async getCoursesFromSwayam(body: {
