@@ -18,6 +18,10 @@ export class AppService {
     return 'eSamudaay BPP is Live';
   }
 
+  getHelloBap(): string {
+    return 'eSamudaay BAP is Live';
+  }
+
   async getCoursesFromSwayam(body: {
     context: components['schemas']['Context'];
     message: { intent: components['schemas']['Intent'] };

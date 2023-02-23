@@ -10,6 +10,11 @@ export class AppController {
     return this.appService.getHello();
   }
 
+  @Get('bap')
+  getHelloBap(): string {
+    return this.appService.getHelloBap();
+  }
+
   @Post('bpp/courses')
   getCoursesFromSwayam(@Body() body: any) {
     return this.appService.getCoursesFromSwayam(body);
