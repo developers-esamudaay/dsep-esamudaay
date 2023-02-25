@@ -27,20 +27,16 @@ export class AppService {
     message: { intent: components['schemas']['Intent'] };
   }) {
     const intent: any = body.message.intent;
-    console.log('intent: ', intent);
-
     // destructuring the intent
     const provider = intent?.provider?.descriptor?.name;
     const query = intent?.item?.descriptor?.name;
     const tagGroup = intent?.item?.tags;
-    console.log('tag group: ', tagGroup);
     const flattenedTags: any = {};
     if (tagGroup) {
       (tagGroup[0].list as any[])?.forEach((tag) => {
         flattenedTags[tag.name] = tag.value;
       });
     }
-    console.log('flattened tags: ', flattenedTags);
     const courseMode = flattenedTags?.course_mode
       ? flattenedTags?.course_mode
       : '';
@@ -119,7 +115,6 @@ export class AppService {
       }
     }
     `;
-    console.log('gql', gql);
     try {
       const resp = await lastValueFrom(
         this.httpService
@@ -142,7 +137,10 @@ export class AppService {
         },
       };
       console.log(`response: ${JSON.stringify(courseData)}`);
-      return courseData;
+      await this.httpService.post(
+        'https://gateway.becknprotocol.io/bg/on_search',
+        courseData,
+      );
     } catch (err) {
       console.log('err: ', err);
       throw new InternalServerErrorException(err);
@@ -150,22 +148,15 @@ export class AppService {
   }
 
   async handleSelect(selectDto: any) {
-    // fine tune the order here
-
-    // order['id'] = selectDto.context.transaction_id + Date.now();
-
     const itemId = selectDto.message.order.items[0].id;
     const order: any = selectItemMapper(courseData[itemId]);
 
-    // order?.items.map((item) => {
-    //   item['descriptor']['long_desc'] = longDes;
-    //   item['tags'] = [...item['tags'],]
-    // });
-
     selectDto.message.order = order;
     selectDto.context.action = 'on_select';
-    const resp = selectDto;
-    return resp;
+    await this.httpService.post(
+      'https://gateway.becknprotocol.io/bg/on_select',
+      selectDto,
+    );
   }
 
   async handleInit(selectDto: any) {
@@ -175,8 +166,10 @@ export class AppService {
     order['fulfillments'] = selectDto.message.order.fulfillments;
     selectDto.message.order = order;
     selectDto.context.action = 'on_init';
-    const resp = selectDto;
-    return resp;
+    await this.httpService.post(
+      'https://gateway.becknprotocol.io/bg/on_init',
+      selectDto,
+    );
   }
 
   async handleConfirm(confirmDto: any) {
@@ -274,7 +267,10 @@ export class AppService {
       confirmDto.message.order = order;
       confirmDto.context.action = 'on_confirm';
       console.log('action: ', confirmDto.context.action);
-      return confirmDto;
+      await this.httpService.post(
+        'https://gateway.becknprotocol.io/bg/on_search',
+        confirmDto,
+      );
     } catch (err) {
       console.log('err: ', err);
       throw new InternalServerErrorException(err);
