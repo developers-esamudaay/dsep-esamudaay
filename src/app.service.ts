@@ -141,7 +141,7 @@ export class AppService {
           catalog: catalog,
         },
       };
-
+      console.log(`response: ${JSON.stringify(courseData)}`);
       return courseData;
     } catch (err) {
       console.log('err: ', err);
