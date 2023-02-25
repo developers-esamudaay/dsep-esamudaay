@@ -13,22 +13,26 @@ export class AppController {
 
   @Post('bpp/search')
   getCoursesFromSwayam(@Body() body: any) {
-    return this.appService.getCoursesFromSwayam(body);
+    this.appService.getCoursesFromSwayam(body);
+    return this.appService.aknowledge();
   }
 
   @Post('bpp/select')
   selectCourse(@Body() body: any) {
-    return this.appService.handleSelect(body);
+    this.appService.handleSelect(body);
+    return this.appService.aknowledge();
   }
 
   @Post('bpp/init')
   initCourse(@Body() body: any) {
-    return this.appService.handleInit(body);
+    this.appService.handleInit(body);
+    return this.appService.aknowledge();
   }
 
   @Post('bpp/confirm')
   confirmCourse(@Body() body: any) {
-    return this.appService.handleConfirm(body);
+    this.appService.handleConfirm(body);
+    return this.appService.aknowledge();
   }
 
   // BAP SIDE
@@ -39,6 +43,7 @@ export class AppController {
 
   @Post('bap/on_search')
   onSearch(@Body() body: any) {
-    return this.appService.handleOnSearch(body);
+    this.appService.handleOnSearch(body);
+    return this.appService.aknowledge();
   }
 }

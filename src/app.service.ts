@@ -282,6 +282,10 @@ export class AppService {
   }
 
   async handleOnSearch(searchResult: any) {
+    // Implement on_search
+  }
+
+  aknowledge() {
     const resp = {
       message: {
         ack: {
