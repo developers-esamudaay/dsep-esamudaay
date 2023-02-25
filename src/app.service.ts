@@ -129,6 +129,8 @@ export class AppService {
 
       const swayamResponse: SwayamApiResponse = JSON.parse(resp.substr(4));
       const catalog = swayamCatalogGenerator(swayamResponse, query);
+      body.context.bpp_id = 'dsep.tools.esamudaay.com/bpp';
+      body.context.bpp_uri = 'https://dsep.tools.esamudaay.com/bpp/';
 
       const courseData: any = {
         context: body.context,
