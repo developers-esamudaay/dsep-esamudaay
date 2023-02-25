@@ -62,12 +62,13 @@ export class AppService {
           tags: ""
           duration: ${courseDuration ? '"' + courseDuration + '"' : '"all"'}
           examDate: "all"
-          credits: ${courseCredits === 'N'
-        ? '"false"'
-        : courseCredits === 'Y'
-          ? '"true"'
-          : '"all"'
-      }
+          credits: ${
+            courseCredits === 'N'
+              ? '"false"'
+              : courseCredits === 'Y'
+              ? '"true"'
+              : '"all"'
+          }
           ncCode: ${provider ? '"' + provider + '"' : '"all"'}
           courseType: ${courseMode ? '"' + courseMode + '"' : '"all"'}
         }
@@ -155,7 +156,6 @@ export class AppService {
 
     const itemId = selectDto.message.order.items[0].id;
     const order: any = selectItemMapper(courseData[itemId]);
-
 
     // order?.items.map((item) => {
     //   item['descriptor']['long_desc'] = longDes;
@@ -279,5 +279,16 @@ export class AppService {
       console.log('err: ', err);
       throw new InternalServerErrorException(err);
     }
+  }
+
+  async handleOnSearch(searchResult: any) {
+    const resp = {
+      message: {
+        ack: {
+          status: 'ACK',
+        },
+      },
+    };
+    return resp;
   }
 }
