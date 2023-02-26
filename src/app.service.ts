@@ -139,7 +139,6 @@ export class AppService {
           catalog: catalog,
         },
       };
-      console.log(`response: ${JSON.stringify(courseData)}`);
       this.httpService.post(
         `${body.context.bpp_uri}on_search`,
         courseData,
@@ -157,7 +156,7 @@ export class AppService {
     selectDto.message.order = order;
     selectDto.context.action = 'on_select';
     await this.httpService.post(
-      `https://gateway.becknprotocol.io/bg/on_select`,
+      `${selectDto.context.bpp_uri}on_select`,
       selectDto,
     );
   }
@@ -170,7 +169,7 @@ export class AppService {
     selectDto.message.order = order;
     selectDto.context.action = 'on_init';
     await this.httpService.post(
-      `https://gateway.becknprotocol.io/bg/on_init`,
+      `${selectDto.context.bpp_uri}on_init`,
       selectDto,
     );
   }
@@ -271,7 +270,7 @@ export class AppService {
       confirmDto.context.action = 'on_confirm';
       console.log('action: ', confirmDto.context.action);
       await this.httpService.post(
-        `https://gateway.becknprotocol.io/bg/on_confirm`,
+        `${confirmDto.context.bpp_uri}on_confirm`,
         confirmDto,
       );
     } catch (err) {
