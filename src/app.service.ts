@@ -141,7 +141,7 @@ export class AppService {
       };
       console.log(`response: ${JSON.stringify(courseData)}`);
       this.httpService
-        .post(`${body.context.bap_uri}on_search`, courseData)
+        .post(`https://gateway.becknprotocol.io/bg/on_search`, courseData)
         .subscribe();
     } catch (err) {
       console.log('err: ', err);
