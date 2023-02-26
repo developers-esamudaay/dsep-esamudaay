@@ -324,5 +324,169 @@ export const selectItemMapper = (item: any) => {
 };
 
 export const generateOndcCoursesCatalogue = () => {
-  return { descriptor: { name: 'Catalog for Ondc' }, providers: [] };
+  return {
+    descriptor: { name: 'Catalog for Ondc' },
+    providers: [
+      {
+        id: 'ONDC',
+        descriptor: {
+          name: 'ONDC',
+        },
+        categories: [
+          {
+            id: 'Multidisciplinary',
+            parent_category_id: 'Multidisciplinary',
+            descriptor: {
+              name: 'Multidisciplinary',
+            },
+          },
+          {
+            id: 'ONDC',
+            parent_category_id: 'ONDC',
+            descriptor: {
+              name: 'ONDC',
+            },
+          },
+        ],
+        items: [
+          {
+            id: 'Q291cnNlTGlzdDovbmQyX2NlYzIzX2NzMDg=',
+            parent_item_id: 'Q291cnNlTGlzdDovbmQyX2NlYzIzX2NzMDg=',
+            descriptor: {
+              name: 'Golden rule of successful selling',
+              long_desc: '',
+              images: [
+                {
+                  url: 'https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEORQt2f7_0OyKFUvN3FrZPEmGfjVTHuU4W7UvPTjXaXPzSTQbXxkRFez-ZTEjBSwyHMU1GGPuDHu86K6A5ApjRBv67LF=w1920-h1080-k-pd',
+                },
+              ],
+            },
+            price: {
+              currency: 'INR',
+              value: '0',
+            },
+            category_id: 'ONDC',
+            recommended: false,
+            time: {
+              label: 'Course Schedule',
+              duration: 'P15W',
+              range: {
+                start: '2023-01-30T18:30:00.000000Z',
+                end: '2023-04-29T18:30:00.000000Z',
+              },
+            },
+            rating: '4',
+            tags: [
+              {
+                descriptor: {
+                  name: 'courseInfo',
+                },
+                list: [
+                  {
+                    descriptor: {
+                      name: 'credits',
+                    },
+                    value: '4',
+                  },
+                  {
+                    descriptor: {
+                      name: 'instructors',
+                    },
+                    value: 'eSamudaay Academy',
+                  },
+                  {
+                    descriptor: {
+                      name: 'offeringInstitue',
+                    },
+                    value: 'eSamudaay',
+                  },
+                  {
+                    descriptor: {
+                      name: 'url',
+                    },
+                    value: 'https://drive.google.com/file/d/1UrJP9q2UOfDyElhpcW2LRmE47LQSp-2h/view',
+                  },
+                  {
+                    decsriptor: {
+                      name: 'enrollmentEndDate',
+                    },
+                    value: '2023-02-28T18:29:00.000000Z',
+                  },
+                ],
+              },
+            ],
+            rateable: false,
+          },
+          {
+            id: 'Q291cnNlTGlzdDovbmQyX2NlYzIzX2NzMDg=',
+            parent_item_id: 'Q291cnNlTGlzdDovbmQyX2NlYzIzX2NzMDg=',
+            descriptor: {
+              name: 'Store profile',
+              long_desc: '',
+              images: [
+                {
+                  url: 'https://i.ytimg.com/vi/i84yqjPBTF4/hqdefault.jpg?sqp=-oaymwE2CNACELwBSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgBwgKAAtAFigIMCAAQARhlIGUoZTAP&rs=AOn4CLAYh8OUJTqNl3SNjUVISKkIHoM3JQ',
+                },
+              ],
+            },
+            price: {
+              currency: 'INR',
+              value: '0',
+            },
+            category_id: 'ONDC',
+            recommended: false,
+            time: {
+              label: 'Course Schedule',
+              duration: 'P15W',
+              range: {
+                start: '2023-01-30T18:30:00.000000Z',
+                end: '2023-04-29T18:30:00.000000Z',
+              },
+            },
+            rating: '4',
+            tags: [
+              {
+                descriptor: {
+                  name: 'courseInfo',
+                },
+                list: [
+                  {
+                    descriptor: {
+                      name: 'credits',
+                    },
+                    value: '4',
+                  },
+                  {
+                    descriptor: {
+                      name: 'instructors',
+                    },
+                    value: 'eSamudaay Academy',
+                  },
+                  {
+                    descriptor: {
+                      name: 'offeringInstitue',
+                    },
+                    value: 'eSamudaay',
+                  },
+                  {
+                    descriptor: {
+                      name: 'url',
+                    },
+                    value: 'https://youtu.be/DdnPvRp2rZE',
+                  },
+                  {
+                    decsriptor: {
+                      name: 'enrollmentEndDate',
+                    },
+                    value: '2023-02-28T18:29:00.000000Z',
+                  },
+                ],
+              },
+            ],
+            rateable: false,
+          },
+        ],
+      },
+    ],
+  };
 };
