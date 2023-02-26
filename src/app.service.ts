@@ -131,7 +131,7 @@ export class AppService {
       const catalog = swayamCatalogGenerator(swayamResponse, query);
       body.context.bpp_id = 'dsep.tools.esamudaay.com/bpp';
       body.context.bpp_uri = 'https://dsep.tools.esamudaay.com/bpp/';
-      body.context.core_version = "1.0.0";
+      body.context.core_version = '1.0.0';
 
       const courseData: any = {
         context: body.context,
@@ -141,7 +141,7 @@ export class AppService {
       };
       console.log(`response: ${JSON.stringify(courseData)}`);
       await this.httpService.post(
-        'https://gateway.becknprotocol.io/bg/on_search',
+        `${body.context.bap_uri}on_search`,
         courseData,
       );
     } catch (err) {
@@ -157,7 +157,7 @@ export class AppService {
     selectDto.message.order = order;
     selectDto.context.action = 'on_select';
     await this.httpService.post(
-      'https://gateway.becknprotocol.io/bg/on_select',
+      `${selectDto.context.bap_uri}on_select`,
       selectDto,
     );
   }
@@ -170,7 +170,7 @@ export class AppService {
     selectDto.message.order = order;
     selectDto.context.action = 'on_init';
     await this.httpService.post(
-      'https://gateway.becknprotocol.io/bg/on_init',
+      `${selectDto.context.bap_uri}on_init`,
       selectDto,
     );
   }
@@ -271,7 +271,7 @@ export class AppService {
       confirmDto.context.action = 'on_confirm';
       console.log('action: ', confirmDto.context.action);
       await this.httpService.post(
-        'https://gateway.becknprotocol.io/bg/on_search',
+        `${confirmDto.context.bap_uri}on_confirm`,
         confirmDto,
       );
     } catch (err) {
