@@ -44,10 +44,10 @@ export const swayamCatalogGenerator = (
   categories = Array.from(categories);
 
   const catalog = {};
-  catalog['descriptor'] = { name: `Catalog for ${query}` };
+  catalog['bpp/descriptor'] = { name: `Catalog for ${query}` };
 
   // adding providers
-  catalog['providers'] = Object.keys(providerWise).map((provider: string) => {
+  catalog['bpp/providers'] = Object.keys(providerWise).map((provider: string) => {
     const providerObj: components['schemas']['Provider'] = {
       id: provider,
       descriptor: {

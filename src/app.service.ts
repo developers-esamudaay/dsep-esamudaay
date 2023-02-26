@@ -131,6 +131,7 @@ export class AppService {
       const catalog = swayamCatalogGenerator(swayamResponse, query);
       body.context.bpp_id = 'dsep.tools.esamudaay.com/bpp';
       body.context.bpp_uri = 'https://dsep.tools.esamudaay.com/bpp/';
+      body.context.core_version = "1.0.0";
 
       const courseData: any = {
         context: body.context,
