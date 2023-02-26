@@ -25,19 +25,19 @@ export const swayamCatalogGenerator = (
     categories.add(
       item.category[0].name
         ? {
-          id: item.category[0].name,
-          parent_category_id: item.category[0].name,
-          descriptor: {
-            name: item.category[0].name,
-          },
-        }
+            id: item.category[0].name,
+            parent_category_id: item.category[0].name,
+            descriptor: {
+              name: item.category[0].name,
+            },
+          }
         : {
-          id: 'OTHERS',
-          parent_category_id: 'OTHERS',
-          descriptor: {
-            name: 'OTHERS',
+            id: 'OTHERS',
+            parent_category_id: 'OTHERS',
+            descriptor: {
+              name: 'OTHERS',
+            },
           },
-        },
     );
   });
 
@@ -67,8 +67,8 @@ export const swayamCatalogGenerator = (
                 url:
                   encodeURI(course.coursePictureUrl) === ''
                     ? encodeURI(
-                      'https://thumbs.dreamstime.com/b/set-colored-pencils-placed-random-order-16759556.jpg',
-                    )
+                        'https://thumbs.dreamstime.com/b/set-colored-pencils-placed-random-order-16759556.jpg',
+                      )
                     : encodeURI(course.coursePictureUrl),
               },
             ],
@@ -321,4 +321,8 @@ export const selectItemMapper = (item: any) => {
   };
 
   return selectItemOrder;
+};
+
+export const generateOndcCoursesCatalogue = () => {
+  return { descriptor: { name: 'Catalog for Ondc' }, providers: [] };
 };

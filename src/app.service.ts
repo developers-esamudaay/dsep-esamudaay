@@ -3,7 +3,11 @@ import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { lastValueFrom, map } from 'rxjs';
 import { components } from 'types/schema';
 import { SwayamApiResponse } from 'types/SwayamApiResponse';
-import { selectItemMapper, swayamCatalogGenerator } from 'utils/generator';
+import {
+  generateOndcCoursesCatalogue,
+  selectItemMapper,
+  swayamCatalogGenerator,
+} from 'utils/generator';
 
 // getting course data
 import * as fs from 'fs';
@@ -136,7 +140,10 @@ export class AppService {
       const courseData: any = {
         context: body.context,
         message: {
-          catalog: catalog,
+          catalog:
+            courseCategory === 'ONDC'
+              ? generateOndcCoursesCatalogue()
+              : catalog,
         },
       };
       this.httpService.post(
