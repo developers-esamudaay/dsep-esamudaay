@@ -131,6 +131,7 @@ export class AppService {
       const catalog = swayamCatalogGenerator(swayamResponse, query);
       body.context.bpp_id = 'dsep.tools.esamudaay.com/bpp';
       body.context.bpp_uri = 'https://dsep.tools.esamudaay.com/bpp/';
+      body.context.action = 'on_search';
 
       const courseData: any = {
         context: body.context,
@@ -139,7 +140,7 @@ export class AppService {
         },
       };
       this.httpService.post(
-        `${body.context.bpp_uri}on_search`,
+        `https://gateway.becknprotocol.io/bg/on_search`,
         courseData,
       );
     } catch (err) {
