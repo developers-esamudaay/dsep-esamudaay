@@ -140,9 +140,10 @@ export class AppService {
         },
       };
       console.log(`response: ${JSON.stringify(courseData)}`);
-      this.httpService
-        .post(`https://gateway.becknprotocol.io/bg/on_search`, courseData)
-        .subscribe();
+      this.httpService.post(
+        `https://gateway.becknprotocol.io/bg/on_search`,
+        courseData,
+      );
     } catch (err) {
       console.log('err: ', err);
       throw new InternalServerErrorException(err);
