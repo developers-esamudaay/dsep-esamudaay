@@ -147,7 +147,7 @@ export class AppService {
         },
       };
       this.httpService.post(
-        `${body.context.bpp_uri}on_search`,
+        `${body.context.bap_uri}on_search`,
         courseData,
       );
     } catch (err) {
