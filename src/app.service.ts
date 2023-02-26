@@ -287,7 +287,11 @@ export class AppService {
   }
 
   async handleOnSearch(searchResult: any) {
-    // Implement on_search
+    // Send the reponse to the eSamudaay Platform for futher processing and caching.
+    await this.httpService.post(
+      `https://api.test.esamudaay.com/api/v1/dsep/on_search`,
+      searchResult,
+    );
   }
 
   aknowledge() {
