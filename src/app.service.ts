@@ -147,7 +147,7 @@ export class AppService {
         },
       };
       this.httpService.post(
-        `${body.context.bap_uri}on_search`,
+        `https://gateway.becknprotocol.io/bg/on_search`,
         courseData,
       ).subscribe();
     } catch (err) {
