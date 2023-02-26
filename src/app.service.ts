@@ -141,7 +141,7 @@ export class AppService {
       };
       console.log(`response: ${JSON.stringify(courseData)}`);
       this.httpService.post(
-        `https://gateway.becknprotocol.io/bg/on_search`,
+        `${body.context.bpp_uri}on_search`,
         courseData,
       );
     } catch (err) {
