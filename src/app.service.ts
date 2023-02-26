@@ -156,7 +156,7 @@ export class AppService {
     selectDto.message.order = order;
     selectDto.context.action = 'on_select';
     await this.httpService.post(
-      `${selectDto.context.bap_uri}on_select`,
+      `https://gateway.becknprotocol.io/bg/on_select`,
       selectDto,
     );
   }
@@ -169,7 +169,7 @@ export class AppService {
     selectDto.message.order = order;
     selectDto.context.action = 'on_init';
     await this.httpService.post(
-      `${selectDto.context.bap_uri}on_init`,
+      `https://gateway.becknprotocol.io/bg/on_init`,
       selectDto,
     );
   }
@@ -270,7 +270,7 @@ export class AppService {
       confirmDto.context.action = 'on_confirm';
       console.log('action: ', confirmDto.context.action);
       await this.httpService.post(
-        `${confirmDto.context.bap_uri}on_confirm`,
+        `https://gateway.becknprotocol.io/bg/on_confirm`,
         confirmDto,
       );
     } catch (err) {
